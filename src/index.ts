@@ -20,17 +20,10 @@ const quotes: string[] = [
 ];
 
 app.get("/", (req: Request, res: Response) => {
-  return res.send("Hi, welcome to the Express TypeScript API!");
-});
-
-app.get("/api/quotes/random", (req: Request, res: Response) => {
-  const randomIndex = Math.floor(Math.random() * quotes.length);
+   const randomIndex = Math.floor(Math.random() * quotes.length);
   const randomQuote = quotes[randomIndex];
-
-  return res.status(200).json({
-    success: true,
-    quote: randomQuote,
-  });
+  return res.send(randomQuote);
 });
+
 
 app.listen(PORT, () => console.log(`Server is running on PORT ${PORT}`));
